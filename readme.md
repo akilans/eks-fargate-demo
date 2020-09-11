@@ -23,6 +23,10 @@ With AWS Fargate, you no longer have to provision, configure, or scale groups of
 * Install eksctl
 * Install kubectl
 
+### Application Diagram
+
+![API - WEB - BLOG ](https://github.com/akilans/eks-fargate-demo/blob/master/web-api-blog.png?raw=true)
+
 ### Cluster Creation using eksctl
 ``` bash
 eksctl create cluster --name eks-demo --version 1.17 --fargate
@@ -107,4 +111,5 @@ kubectl apply -f k8s/EFS/efs.yaml
 # Create EFS volume and configure SG
 # Update EFS id in pv-pvc.yaml
 kubectl apply -f k8s/EFS/pv-pvc.yaml
+kubectl apply -f k8s/EFS/web-dep-pv.yaml
 ```
