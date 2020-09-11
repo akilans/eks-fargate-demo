@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "admcoe-ingress"
+  namespace: "default"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+  labels:
+    app: admcoe-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api
+            backend:
+              serviceName: "node-api-app"
+              servicePort: 3000
+          - path: /blog
+            backend:
+              serviceName: "node-blog-app"
+              servicePort: 3000
+          - path: /
+            backend:
+              serviceName: "web"
+              servicePort: 80

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: node-api-app
+  name: node-api-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-api-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-api-app
+    spec:
+      containers:
+      - image: akilan/node-api:1
+        name: node-api
+        resources: {}
+status: {}
