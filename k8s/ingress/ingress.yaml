@@ -21,7 +21,7 @@ spec:
             backend:
               serviceName: "node-blog-app"
               servicePort: 3000
-          - path: /
+          - path: /*
             backend:
               serviceName: "web"
               servicePort: 80

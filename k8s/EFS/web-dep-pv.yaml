@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        volumeMounts:
+          - mountPath: /usr/local/apache2/htdocs/
+            name: web-data
+        resources: {}
+      volumes:
+      - name: web-data
+        persistentVolumeClaim:
+            claimName: web-claim
+status: {}

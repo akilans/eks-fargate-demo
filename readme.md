@@ -100,3 +100,11 @@ kubectl edit deployment.apps/alb-ingress-controller -n kube-system
 kubectl apply -f k8s/ingress/ingress.yaml
 
 ```
+
+### EFS - Persistent Storage
+``` bash
+kubectl apply -f k8s/EFS/efs.yaml
+# Create EFS volume and configure SG
+# Update EFS id in pv-pvc.yaml
+kubectl apply -f k8s/EFS/pv-pvc.yaml
+```
